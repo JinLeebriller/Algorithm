@@ -1,3 +1,3 @@
 # Algorithm
 
-Records of algorithmic problems solved every day
+Records of algorithmic problems solved
