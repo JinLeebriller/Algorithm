@@ -1,3 +1,3 @@
 # Algorithm
 
-Records of algorithmic problems solved
+Records of algorithmic problems I solved.
