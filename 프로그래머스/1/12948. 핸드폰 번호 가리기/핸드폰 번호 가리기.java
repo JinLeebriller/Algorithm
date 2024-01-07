@@ -1,12 +1,11 @@
 class Solution {
     public String solution(String phone_number) {
-        String before = phone_number.substring(phone_number.length() - 4);
-        String after = "";
-        
+        char[] number = phone_number.toCharArray();
+
         for(int i = 0 ; i < phone_number.length() - 4 ; i++) {
-            after += "*";
+            number[i] = '*';
         }
-        
-        return after + before;
+
+        return String.valueOf(number);
     }
 }
