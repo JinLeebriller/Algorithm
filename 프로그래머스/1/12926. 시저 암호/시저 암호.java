@@ -1,28 +1,15 @@
 class Solution {
     public String solution(String s, int n) {
-        String answer = "";
-        char[] sCharArray = s.toCharArray();
+        StringBuilder sb = new StringBuilder(s);
 
-        for(int i = 0 ; i < sCharArray.length ; i++) {
-            if(97 <= sCharArray[i] && sCharArray[i] <= 122) {
-                if ((char) (sCharArray[i] + n) > 122) {
-                    sCharArray[i] = (char) (96 + ((sCharArray[i] + n) - 122));
-                } else {
-                    sCharArray[i] = (char) (sCharArray[i] + n);
-                }
+        for(int i = 0 ; i < sb.length() ; i++) {
+            if(97 <= sb.charAt(i) && sb.charAt(i) <= 122) {
+                sb.setCharAt(i, sb.charAt(i) + n <= 122 ? (char)(sb.charAt(i) + n) : (char)(96 + (sb.charAt(i) + n) - 122));
+            } else if(65 <= sb.charAt(i) && sb.charAt(i) <= 90) {
+                sb.setCharAt(i, sb.charAt(i) + n <= 90 ? (char)(sb.charAt(i) + n) : (char)(64 + (sb.charAt(i) + n) - 90));
             }
-
-            if(65 <= sCharArray[i] && sCharArray[i] <= 90) {
-                if ((char) (sCharArray[i] + n) > 90) {
-                    sCharArray[i] = (char) (64 + ((sCharArray[i] + n) - 90));
-                } else {
-                    sCharArray[i] = (char) (sCharArray[i] + n);
-                }
-            }
-
-            answer += String.valueOf(sCharArray[i]);
         }
 
-        return answer;
+        return sb.toString();
     }
 }
