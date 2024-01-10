@@ -11,12 +11,8 @@ class Solution {
                 }
             } else if(sb.length() != 0 && sb.charAt(0) != '\0') {
                 for(int j = 0 ; j < sb.length() ; j++) {
-                    if(j == 0) {
-                        sb.setCharAt(j, Character.toUpperCase(sb.charAt(j)));
-                    } else {
-                        sb.setCharAt(j, Character.toLowerCase(sb.charAt(j)));
+                        sb.setCharAt(j, j == 0 ? Character.toUpperCase(sb.charAt(j)) : Character.toLowerCase(sb.charAt(j)));
                     }
-                }
             }
             answer += sb.toString();
             if(i < sArray.length - 1) {
