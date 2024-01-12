@@ -13,7 +13,7 @@ class Solution {
         }
 
         for(int i = aliquot.size() - 1, j = 0 ; i >= 0 ; i--, j++) {
-            if(aliquot.get(j) > 2 && (aliquot.get(i) - 2)*(aliquot.get(j) - 2) == yellow) {
+            if((aliquot.get(i) - 2)*(aliquot.get(j) - 2) == yellow) {
                 answer[0] = aliquot.get(j);
                 answer[1] = aliquot.get(i);
             }
