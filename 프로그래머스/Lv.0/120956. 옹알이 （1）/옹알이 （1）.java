@@ -3,7 +3,7 @@ class Solution {
         int answer = 0;
         String[] yesICanDo = {"aya", "ye", "woo", "ma"};
 
-        out: for(int i = 0 ; i < babbling.length ; i++) {
+        for(int i = 0 ; i < babbling.length ; i++) {
             StringBuilder sb = new StringBuilder(babbling[i]);
             for(int  j = 0 ; j < yesICanDo.length ; j++) {
                 if(sb.indexOf(yesICanDo[j]) != -1) {
@@ -13,12 +13,10 @@ class Solution {
                     }
                 }
             }
-            for(int j = 0 ; j < sb.length() ; j++) {
-                if(sb.charAt(j) != '1') {
-                    continue out;
-                }
+            babbling[i] = sb.toString().replace("1", "");
+            if(babbling[i].isEmpty()) {
+                answer++;
             }
-            answer++;
         }
 
         return answer;
