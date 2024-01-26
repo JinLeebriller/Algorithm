@@ -2,11 +2,11 @@ import java.util.Stack;
 
 class Solution {
     static boolean[] visited;
+    static Stack<Integer> stack = new Stack<>();
     
     public int solution(int n, int[][] computers) {
         int answer = 0;
         visited = new boolean[n];
-        Stack<Integer> stack = new Stack<>();
 
         for(int i = 0 ; i < n ; i++) {
             if(!visited[i]) {
