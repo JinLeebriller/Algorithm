@@ -1,8 +1,8 @@
-import java.util.Stack;
+import java.util.*;
 
 class Solution {
     static boolean[] visited;
-    static Stack<Integer> stack = new Stack<>();
+    static Queue<Integer> queue = new LinkedList<>();
     
     public int solution(int n, int[][] computers) {
         int answer = 0;
@@ -11,23 +11,24 @@ class Solution {
         for(int i = 0 ; i < n ; i++) {
             if(!visited[i]) {
                 answer++;
-                dfs(i, computers, n, stack);
+                bfs(i, computers, n);
             }
         }
 
         return answer;
     }
     
-    void dfs(int depth, int[][] computers, int n, Stack<Integer> stack) {
+    void bfs(int depth, int[][] computers, int n) {
         visited[depth] = true;
-        stack.push(depth);
+        queue.offer(depth);
 
-        while(!stack.isEmpty()) {
-            stack.pop();
+        while(!queue.isEmpty()) {
+            int w = queue.poll();
 
             for(int i = 0 ; i < n ; i++) {
-                if(!visited[i] && computers[i][depth] != 0) {
-                    dfs(i, computers, n, stack);
+                if(!visited[i] && computers[w][i] != 0) {
+                    visited[i] = true;
+                    queue.offer(i);
                 }
             }
         }
