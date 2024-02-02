@@ -6,16 +6,17 @@ class Solution {
         LinkedList<String> cache = new LinkedList<>();
 
         for(int i = 0 ; i < cities.length ; i++) {
+            cities[i] = cities[i].toLowerCase();
             if(cache.size() == cacheSize + 1) {
                 cache.removeLast();
             }
-            if(cache.contains(cities[i].toLowerCase())) {
-                cache.remove(cities[i].toLowerCase());
-                cache.addFirst(cities[i].toLowerCase());
+            if(cache.contains(cities[i])) {
+                cache.remove(cities[i]);
+                cache.addFirst(cities[i]);
                 answer += 1;
             }
-            if(!cache.contains(cities[i].toLowerCase())) {
-                cache.addFirst(cities[i].toLowerCase());
+            if(!cache.contains(cities[i])) {
+                cache.addFirst(cities[i]);
                 answer += 5;
             }
         }
